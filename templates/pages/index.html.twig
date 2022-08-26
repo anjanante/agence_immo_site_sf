@@ -8,7 +8,24 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque dolore error facilis libero placeat provident quam qui voluptatem voluptatum? Aliquid cupiditate dolore enim, eveniet itaque maiores nihil sequi vero?  </p>
     </div>
     <div class="container">
+        <h2>The last properties</h2>
+        <div class="row flex">
+            {% for property in properties  %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="">{{ property.title }}</a>
+                            </h5>
+                            <div class="card-text">{{ property.city }} {{ property.postalCode }}</div>
+                            <div class="text-primary" style="font-weight: bold;font-size: 2rem">{{ property.formatedPrice }} Ar</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
+
 
 
