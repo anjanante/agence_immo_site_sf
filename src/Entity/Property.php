@@ -6,6 +6,7 @@ use App\Repository\PropertyRepository;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
@@ -109,6 +110,11 @@ class Property
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return  (new Slugify())->slugify($this->title);
     }
 
     public function getDescription(): ?string
