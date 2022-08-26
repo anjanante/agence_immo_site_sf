@@ -31,13 +31,25 @@ class PropertyController extends AbstractController
     }
 
     /**
-     * @Route("/properties", name="app_properties")
+     * @Route("/properties/{slug}-{id}", name="app_properties.show", requirements={"slug": "[a-z0-9\-]*"})
+     * @param Property $property
+     * @param String $slug
+     * @return Response
      */
-    public function show(): Response
+    public function show(Property $property, String $slug): Response
     {
-        $properties = $this->repository->findAllVisible();
-        return $this->render('property/index.html.twig', [
+        dump($property);
+        //redirect to correct property with id even slug is modified directly
+        if($property->getSlug() !== $slug){
+            return $this->redirectToRoute('app_properties.show', [
+                'id' =>  $property->getId(),
+                'slug' => $property->getSlug()
+            ], 301);
+        }
+
+        return $this->render('property/show.html.twig', [
             'current_menu' => 'properties',
+            'property' => $property
         ]);
     }
 
