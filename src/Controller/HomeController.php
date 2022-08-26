@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class HomeController extends AbstractController
 {
@@ -13,10 +15,6 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return new Response('<h1>Hi!</h1>');
-
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('pages/index.html.twig');
     }
 }
