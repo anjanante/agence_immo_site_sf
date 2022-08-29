@@ -37,8 +37,8 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @throws ORMException
-     * @throws OptimisticLockException
+     * @param Property $entity
+     * @param bool $flush
      */
     public function remove(Property $entity, bool $flush = true): void
     {
@@ -66,6 +66,7 @@ class PropertyRepository extends ServiceEntityRepository
     {
         return $this->findVisibleQuery()
             ->setMaxResults(4)
+            ->orderBy('p.created_at', 'DESC')
             ->getQuery()
             ->getResult()
             ;
