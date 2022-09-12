@@ -5,10 +5,16 @@
 {% block body %}
 
     <div class="container mt-4">
+    {% if error %}
+    <div class="alert alert-danger">
+        {{ error.messageKey | trans(error.messagedata, 'security') }}
+    </div>
+    {% endif %}
+
         <form action="{{ path('login') }}" method="post" accept-charset="UTF-8">
             <div class="form-group">
                 <label for="username">Username</label></h3>
-                <input id="username" type="text" name="_username"  value="" class="form-control">
+                <input id="username" type="text" name="_username"  value="{{ last_username }}" class="form-control">
             </div>
             <div class="form-group">
                 <label for="password">Password</label></h3>
