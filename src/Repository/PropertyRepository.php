@@ -4,8 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Property;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Query;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Doctrine\ORM\Query as ORMQuery;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -49,14 +51,12 @@ class PropertyRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Property[]
+     * @return ORMQuery
      */
-    public function findAllVisible(): array
+    public function findAllVisibleQuery(): ORMQuery
     {
         return $this->findVisibleQuery()
-            ->getQuery()
-            ->getResult()
-            ;
+            ->getQuery();
     }
 
     /**
