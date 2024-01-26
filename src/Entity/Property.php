@@ -100,6 +100,11 @@ class Property
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $start;
+
     public function __construct()
     {
         $this->created_at = new DateTime();
@@ -277,6 +282,18 @@ class Property
     public function setCreatedAt(DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getStart(): ?\DateTimeInterface
+    {
+        return $this->start;
+    }
+
+    public function setStart(\DateTimeInterface $start): self
+    {
+        $this->start = $start;
 
         return $this;
     }
