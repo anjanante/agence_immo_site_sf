@@ -7,8 +7,8 @@ services:
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-app}
       # You should definitely change the password in production
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMe}
-      POSTGRES_USER: ${POSTGRES_USER:-symfony}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-myPass}
+      POSTGRES_USER: ${POSTGRES_USER:-nantedevy}
     volumes:
       - db-data:/var/lib/postgresql/data:rw
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
@@ -26,11 +26,13 @@ services:
       - "5050:80"
 
   app:
-    image: 97b79cbc4d1f
+    image: agence-immo-site-sf:latest
     ports:
       - "8080:80"
     environment:
-      - DATABASE_URL postgres://${POSTGRES_USER:-symfony}:${POSTGRES_PASSWORD:-ChangeMe}@database:5432/${POSTGRES_DB:-app}
+      - DATABASE_URL postgres://${POSTGRES_USER:-nantedevy}:${POSTGRES_PASSWORD:-myPass}@docker-database-1:5432/${POSTGRES_DB:-app}
+    volumes:
+      - D:/DEV/Application/agence_immo_site_sf:/var/www
 
 volumes:
   db-data:
