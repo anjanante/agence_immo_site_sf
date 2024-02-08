@@ -11,10 +11,10 @@ class PropertyFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        $dNow = new \DateTime();
         $faker = Factory::create();
         for ($i=1;$i<=100;$i++)
         {
-            
             $property = new Property();
             $property->setTitle($faker->words(3,true))
                 ->setPrice($faker->numberBetween(10000,200000))
@@ -27,6 +27,7 @@ class PropertyFixtures extends Fixture
                 ->setCity($faker->city)
                 ->setAddress($faker->address)
                 ->setPostalCode($faker->postcode)
+                ->setStart($dNow)
                 ->setSold(false);
 
             $manager->persist($property);
