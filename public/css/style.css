@@ -1,0 +1,6 @@
+a,.page-link { color: #537699 }
+.text-primary { color: #dc3545 !important}
+.page-item.active .page-link {
+    background-color: #343a40;
+    border-color: #343a40;
+}
