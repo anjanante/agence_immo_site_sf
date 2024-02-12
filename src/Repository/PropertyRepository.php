@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Property;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\DBAL\Query;
 use Doctrine\ORM\OptimisticLockException;
@@ -53,10 +54,18 @@ class PropertyRepository extends ServiceEntityRepository
     /**
      * @return ORMQuery
      */
-    public function findAllVisibleQuery(): ORMQuery
+    public function findAllVisibleQuery(PropertySearch $search): ORMQuery
     {
-        return $this->findVisibleQuery()
-            ->getQuery();
+        $query = $this->findVisibleQuery();
+        if($search->getMaxPrice()){
+            $query->andWhere('p.price <= :maxPrice')
+                    ->setParameter('maxPrice', $search->getMaxPrice());
+        }
+        if($search->getMinSurface()){
+            $query->andWhere('p.surface >= :minSurface')
+                    ->setParameter('minSurface', $search->getMinSurface());
+        }
+        return $query->getQuery();
     }
 
     /**
