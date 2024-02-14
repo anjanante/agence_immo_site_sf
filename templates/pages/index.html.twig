@@ -13,6 +13,11 @@
             {% for property in properties  %}
                 <div class="col-3">
                     <div class="card">
+                        {% if property.filename %}
+                            <img class="card-img-top property-list" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="{{ property.title }}">
+                        {% else %}
+                            <img class="card-img-top property-list" src="https://picsum.photos/id/63/200/100" alt="{{ property.title }}">
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="{{ path('app_properties.show', {id: property.id, slug:property.slug}) }}">{{ property.title }}</a>

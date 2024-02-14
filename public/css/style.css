@@ -20,3 +20,8 @@ a,.page-link { color: #537699 }
     background-color: #537699;
     border-color: #343a40;
 }
+
+/**Card**/
+.card-img-top.property-list {
+    height: 130px;
+}
