@@ -27,8 +27,8 @@ RUN mkdir -p var/cache var/log \
 
 COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
-RUN cd /var/www && \
-    composer install
+# RUN cd /var/www && \
+#     composer install
 
 WORKDIR /var/www/
 
