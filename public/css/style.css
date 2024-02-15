@@ -22,6 +22,7 @@ a,.page-link { color: #537699 }
 }
 
 /**Card**/
-.card-img-top.property-list {
-    height: 130px;
+.property-list {
+    max-height: 180px;
+    overflow: hidden;
 }
