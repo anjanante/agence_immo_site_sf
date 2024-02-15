@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="property-list">
                             {% if property.filename %}
-                                <img class="card-img-top" src="{{ vich_uploader_asset(property, 'imageFile') }}" alt="{{ property.title }}">
+                                <img class="card-img-top" src="{{ vich_uploader_asset(property, 'imageFile') | imagine_filter('thumb') }}" alt="{{ property.title }}">
                             {% else %}
                                 <img class="card-img-top" src="https://picsum.photos/id/405/200/110" alt="{{ property.title }}">
                             {% endif %}

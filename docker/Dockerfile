@@ -5,16 +5,17 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN a2enmod rewrite
 
 RUN chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions pdo mysqli pdo_mysql intl zip
+    install-php-extensions pdo mysqli pdo_mysql intl zip gd
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
     mv composer.phar /usr/local/bin/composer
 
 
 RUN apt-get update \
-    && apt-get install -y libpq-dev \
+    && apt-get install -y libpq-dev libpng-dev \
     && docker-php-ext-install pdo_pgsql \
-    && rm -rf /var/lib/apt/lists/*   # Clean up
+    && docker-php-ext-enable gd \
+    && rm -rf /var/lib/apt/lists/*  # Clean up
 
 
 COPY . /var/www/
