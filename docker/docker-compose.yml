@@ -25,6 +25,14 @@ services:
     ports:
       - "5050:80"
 
+  maildev:
+    image: maildev/maildev
+    container_name: maildev_docker_symfony
+    command: bin/maildev --web 80 --smtp 1025 --hide-extensions STARTTLS
+    restart: always
+    ports:
+        - 8081:80
+
   app:
     image: agence-immo-site-sf:latest
     ports:
