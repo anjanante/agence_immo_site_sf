@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Entity\Property;
 use App\Entity\PropertySearch;
+use App\Form\ContactType;
 use App\Form\PropertySearchType;
 use App\Repository\PropertyRepository;
 use Knp\Component\Pager\PaginatorInterface;
