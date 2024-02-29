@@ -12,11 +12,13 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 
 
 RUN apt-get update \
-    && apt-get install -y libpq-dev libpng-dev \
+    && apt-get install -y libpq-dev libpng-dev nodejs npm \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-enable gd \
-    && rm -rf /var/lib/apt/lists/*  # Clean up
+    && rm -rf /var/lib/apt/lists/* # Clean up
 
+#Install Yarn
+RUN npm install -g yarn
 
 COPY . /var/www/
 

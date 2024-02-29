@@ -8,8 +8,10 @@ A property management application based on symfony 4.4
 > docker-compose up -d
 
 # Color sources
+```
 bg : #343a40
 link: #537699
 text-primary : #dc3545
+```
 
 
