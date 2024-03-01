@@ -19,6 +19,8 @@ RUN apt-get update \
 
 #Install Yarn
 RUN npm install -g yarn
+RUN npm install --save-dev @babel/plugin-proposal-class-properties
+
 
 COPY . /var/www/
 

@@ -3,14 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap.min.css') }}"  crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}"  crossorigin="anonymous">
+        {# <link rel="stylesheet" href="{{ asset('bootstrap/bootstrap.min.css') }}"  crossorigin="anonymous"> #}
+        {# <link rel="stylesheet" href="{{ asset('css/style.css') }}"  crossorigin="anonymous"> #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"  crossorigin="anonymous">
+        
+        {# <link rel="stylesheet" href="{{ asset('build/app.css') }}"  crossorigin="anonymous"> #}
         
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
@@ -40,18 +42,16 @@
             {% endif %}
         </nav>
         {% block body %}{% endblock %}
-        <script src="{{ asset('jquery/jquery-3.3.1.slim.min.js') }}"  crossorigin="anonymous"></script>
-        <script src="{{ asset('bootstrap/popper.min.js') }}"  crossorigin="anonymous"></script>
-        <script src="{{ asset('bootstrap/bootstrap.min.js') }}"  crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"  crossorigin="anonymous"></script>
+        {# <script src="{{ asset('jquery/jquery-3.3.1.slim.min.js') }}"  crossorigin="anonymous"></script> #}
+        {# <script src="{{ asset('bootstrap/popper.min.js') }}"  crossorigin="anonymous"></script>
+        <script src="{{ asset('bootstrap/bootstrap.min.js') }}"  crossorigin="anonymous"></script> #}
+        {# <script src="{{ asset('build/app.js') }}"  crossorigin="anonymous"></script> #}
+        {# <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"  crossorigin="anonymous"></script>
         <script>
             $('select').select2();
-        </script>  
+        </script>   #}
         {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
-        {# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> #}
     </body>
 </html>

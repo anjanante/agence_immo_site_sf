@@ -1,0 +1,28 @@
+a,.page-link { color: #537699 }
+.text-primary { color: #dc3545 !important}
+.page-item.active .page-link {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+/**Button**/
+.btn-danger {
+    color: #dc3545;
+    background-color: #ffffff;
+    border-color: #dc3545;
+}
+.btn-primary {
+    color: #ffffff;
+    background-color: #343a40;
+    border-color: #537699;
+}
+.btn-secondary {
+    color: #ffffff;
+    background-color: #537699;
+    border-color: #343a40;
+}
+
+/**Card**/
+.property-list {
+    max-height: 180px;
+    overflow: hidden;
+}

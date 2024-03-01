@@ -5,8 +5,17 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+
 // any CSS you import will output into a single css file (app.css in this case)
+import './bootstrap/bootstrap.min.css';
+import './styles/style.css';
 import './styles/app.css';
+
+import $ from 'jquery';
+
+import 'select2';
+
+$('select').select2();
 
 // start the Stimulus application
 import './bootstrap';
