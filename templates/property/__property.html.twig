@@ -1,3 +1,4 @@
+{% cache "cache key" %}
 <div class="card mb-4">
     <div class="property-list">
         {% if property.filename %}
@@ -17,3 +18,4 @@
         <div class="text-primary text-base" style="font-weight: bold;font-size: 2rem">{{ property.formatedPrice }} Ar</div>
     </div>
 </div>
+{% endcache %}

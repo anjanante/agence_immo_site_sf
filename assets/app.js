@@ -17,5 +17,13 @@ import 'select2';
 
 $('select').select2();
 
+let $contactBtn = $('#contact-button')
+$contactBtn.on("click", e => {
+    e.preventDefault();
+    $('#contact-form').slideDown();
+    $contactBtn.fadeOut('slow');
+});
+
+
 // start the Stimulus application
 import './bootstrap';

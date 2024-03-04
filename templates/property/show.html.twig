@@ -27,8 +27,8 @@
                     <h1>{{ property.title }}</h1>
                     <h2>{{ property.rooms }} rooms - {{ property.surface }} m²</h2>
                     <div class="text-primary" style="font-weight: bold;font-size: 4rem">{{ property.formatedPrice }} Ar</div>
-                    <div class="btn btn-primary">Contact us</div>
-                    <div id="contact-form" class="mt-4">
+                    <div class="btn btn-primary" id="contact-button" {% if form.vars.submitted %}style="display:none"{% endif %}>Contact us</div>
+                    <div id="contact-form" class="mt-4"  {% if not form.vars.submitted %}style="display:none"{% endif %}>
                         {{ form_start(form)}}
                         <div class="row">
                             <div class="col">{{ form_row(form.firstname)}}</div>
