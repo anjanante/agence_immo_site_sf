@@ -11,11 +11,11 @@ RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
     mv composer.phar /usr/local/bin/composer
 
 
-RUN apt-get update \
-    && apt-get install -y libpq-dev libpng-dev nodejs npm \
-    && docker-php-ext-install pdo_pgsql \
-    && docker-php-ext-enable gd \
-    && rm -rf /var/lib/apt/lists/* # Clean up
+RUN apt-get update
+RUN apt-get install -y libpq-dev libpng-dev nodejs npm
+RUN docker-php-ext-install pdo_pgsql 
+RUN docker-php-ext-enable gd 
+RUN rm -rf /var/lib/apt/lists/* # Clean up
 
 #Install Yarn
 RUN npm install -g yarn
